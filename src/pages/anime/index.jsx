@@ -28,14 +28,20 @@ const AnimePage = () => {
     }
   }, [param])
 
+  if (loading) return (
+    <StyledAnimePage>
+      <div className='grid'>
+        <p>Loading...</p>
+      </div>
+    </StyledAnimePage>
+  )
+
   return (
     <StyledAnimePage>
       <h2>Quotes from {param?.name}</h2>
       <Link to='/'>Go back</Link>
       <div className='grid'>
-        {loading ? (
-          <p>Loading...</p>
-        ) : quotes?.length ?
+        {quotes?.length ?
           (
             quotes?.map((quote, index) => (
               <div key={quote?.quote + index} className='anime'>
