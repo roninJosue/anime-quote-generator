@@ -10,7 +10,7 @@ const Pagination = ({listLength}) => {
   const [numsArr, setNumsArr] = useState([])
 
   useEffect(() => {
-    const max = Math.floor(listLength / PER_PAGE)
+    const max = Math.ceil(listLength / PER_PAGE)
     let nums = []
 
     for (let i = 0; i <= max; i++) {
